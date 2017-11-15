@@ -1,0 +1,47 @@
+/* materialize issue of slidenav overlay -> to solve the problem z-index has to be greater than 997, damn wtf */
+.navbar-fixed { 
+    z-index: 998;
+}
+
+#login-page{
+    margin-top: 30px;
+}
+
+.wrapper{
+    transform:translateY(55%);
+}
+
+@media screen and (max-width: 992px){
+   .wrapper{
+       transform: translateY(10%);
+   } 
+}
+
+ /* Rules for sizing the icon. */
+ .material-icons.md-18 { font-size: 18px; }
+ .material-icons.md-24 { font-size: 24px; }
+ .material-icons.md-36 { font-size: 36px; }
+ .material-icons.md-48 { font-size: 48px; }
+
+ #companyLogo {
+   max-height: 90px;
+}
+
+#mainPageContainer{
+  margin-top: 30px;
+}
+
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  .screensImages{
+    max-height: 500px;
+  }
+      

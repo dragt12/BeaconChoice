@@ -1,0 +1,141 @@
+<!-- Navbar -->
+{{#if login}}
+<body>
+    <nav class="indigo">
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo"><img src="/images/companyLogo.png" id="companyLogo" alt="Beacon Choice logo"></a>
+            <a href="#" data-activates="slide-out" class="right button-collapse show-on-large indigo"><i class="material-icons">menu</i></a>
+            <ul id="slide-out" class="side-nav">
+                <li><a href="/"><i class="material-icons">home</i>Home</a></li>
+                <li><a href="/employee/manage"><i class="material-icons">group</i>Employees</a></li>
+                <li><a href="/employee/working"><i class="material-icons">assignment_ind</i>Currently working</a></li>
+                <li><a href="/employee/analysis"><i class="material-icons">assessment</i>Analysis</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/users/logout"><i class="material-icons">power_settings_new</i>Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container wrapper">
+        <div class="row">
+            <div class="col s6 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/images/employees.jpg">
+                        <span class="card-title">Your Employees</span>
+                    </div>
+                    
+                    <div class="card-action">
+                        <a href="/employee/manage" class="indigo-text text-darken-3">Manage</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s6 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/images/currentlyWorking.jpg" alt="Currently working employees">
+                        <span class="card-title">Currently working</span>
+                    </div>
+                    <div class="card-action">
+                        <a href="/employee/working" class="indigo-text text-darken-3">Show</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/images/analisys.jpg" alt="Analysis">
+                        <span class="card-title">Analysis</span>
+                    </div>
+                    <div class="card-action">
+                        <a href="/employee/analysis" class="indigo-text text-darken-3">Show</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script>  $('.button-collapse').sideNav({
+      menuWidth: 300,
+      edge: 'right',
+      closeOnClick: true,
+      draggable: true
+    }); </script>
+</body>
+{{else}}
+<body>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper indigo">
+                <div class="container">
+                    <div class="col s12">
+                        <a href="#" class="brand-logo"><img src="/images/companyLogo.png" id="companyLogo" alt="Beacon Choice logo"></a>        
+                        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                        <!-- Navbar menu -->
+                        <ul class="right hide-on-med-and-down">          
+                            <li><a href="#product">Product</a></li>     
+                            <li><a href="#aboutUs">About us</a></li> 
+                            <li><a href="#join">Join</a></li> 
+                            <li><a href="/users/login" class="waves-effect waves-dark btn white black-text">Sign in</a></li>    
+                        </ul>
+                        <!-- Navbar menu mobile -->
+                        <ul class="side-nav" id="mobile-demo">
+                            <li><a href="#">Product</a></li>     
+                            <li><a href="#">About us</a></li> 
+                            <li><a href="#">Join</a></li>  
+                            <li><a href="/users/login" class="waves-effect waves-light btn indigo lighten-2">Sign in</a></li> 
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    <div class="container" id="mainPageContainer">
+        <h1 id="product" class="align-center">Explore our solution for comapny employers</h1>
+        <div class="row">
+            <div class="col s3">
+                <img src="/images/firstScreen.png" class="screensImages">
+            </div>
+            <div class="col s4 offset-s1 left-align">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac aliquet purus. Phasellus gravida erat justo, sed laoreet sapien placerat eu. Curabitur id velit pharetra, sodales neque eget, pulvinar quam. Nullam urna urna, posuere nec augue ac, ullamcorper dictum tellus. Cras nec tellus quis ipsum facilisis euismod. Nulla facilisi. Quisque vestibulum ligula magna, at bibendum nisl posuere sed. Integer ultrices nulla enim, et tincidunt orci laoreet quis. Maecenas a nibh sed nunc fringilla tempor.</p>
+            </div>
+            <div class="col s3">
+                <img src="/images/secondScreen.png" class="screensImages">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s3">
+                <img src="/images/thirdScreen.png" class="screensImages">
+            </div>
+            <div class="col s4 offset-s1 left-align">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac aliquet purus. Phasellus gravida erat justo, sed laoreet sapien placerat eu. Curabitur id velit pharetra, sodales neque eget, pulvinar quam. Nullam urna urna, posuere nec augue ac, ullamcorper dictum tellus. Cras nec tellus quis ipsum facilisis euismod. Nulla facilisi. Quisque vestibulum ligula magna, at bibendum nisl posuere sed. Integer ultrices nulla enim, et tincidunt orci laoreet quis. Maecenas a nibh sed nunc fringilla tempor.</p>
+            </div>
+            <div class="col s3">
+                <img src="/images/fourthScreen.png" class="screensImages">
+            </div>
+        </div>
+        <h1 id="aboutUs" class="align-center">About us</h1>
+        <div class="row">
+            <div class="col s4 offset-s4"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac aliquet purus. Phasellus gravida erat justo, sed laoreet sapien placerat eu. Curabitur id velit pharetra, sodales neque eget, pulvinar quam. Nullam urna urna, posuere nec augue ac, ullamcorper dictum tellus. Cras nec tellus quis ipsum facilisis euismod. Nulla facilisi. Quisque vestibulum ligula magna, at bibendum nisl posuere sed. Integer ultrices nulla enim, et tincidunt orci laoreet quis. Maecenas a nibh sed nunc fringilla tempor.</p></div>
+        </div>
+        <h1 id="join" class="align-center">Join to our solution</h1>
+        <div class="row">
+            <div class="col s4 offset-s4"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac aliquet purus. Phasellus gravida erat justo, sed laoreet sapien placerat eu. Curabitur id velit pharetra, sodales neque eget, pulvinar quam. Nullam urna urna, posuere nec augue ac, ullamcorper dictum tellus. Cras nec tellus quis ipsum facilisis euismod. Nulla facilisi. Quisque vestibulum ligula magna, at bibendum nisl posuere sed. Integer ultrices nulla enim, et tincidunt orci laoreet quis. Maecenas a nibh sed nunc fringilla tempor.</p></div>
+        </div>
+    </div>
+     <header></header>
+    <main></main> 
+    <footer class="page-footer indigo lighten-1">
+        <div class="footer-copyright indigo text-align">
+            <div class="container center-align">
+                © 2017 Racjonalny Traktor
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script>$(".button-collapse").sideNav();</script>
+</body>
+{{/if}}
+

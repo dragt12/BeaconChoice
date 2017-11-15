@@ -1,0 +1,7 @@
+{{#each places}}
+    {{this.startTime}}
+        {{#each this.places}}
+            {{this.name}}|{{this.startTime}}|{{this.endTime}}
+        {{/each}}
+    {{this.endTime}}
+{{/each}}

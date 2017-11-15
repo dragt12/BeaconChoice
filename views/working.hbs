@@ -1,0 +1,67 @@
+<body>
+    <nav class="indigo">
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo"><img src="/images/companyLogo.png" id="companyLogo" alt="Beacon Choice logo"></a>
+            <a href="#" data-activates="slide-out" class="right button-collapse show-on-large indigo"><i class="material-icons">menu</i></a>
+            <ul id="slide-out" class="side-nav">
+                <li><a href="/"><i class="material-icons">home</i>Home</a></li>
+                <li><a href="/employee/manage"><i class="material-icons">group</i>Employees</a></li>
+                <li><a href="/employee/working"><i class="material-icons">assignment_ind</i>Currently working</a></li>
+                <li><a href="/employee/analysis"><i class="material-icons">assessment</i>Analysis</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/users/logout"><i class="material-icons">power_settings_new</i>Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h2 class="header"><i class="material-icons md-36">group</i> Employees List</h2>
+
+        <div class="input-field col s12">
+                <select id="selectPlace">
+                  <option value="" disabled selected>Choose place</option>
+                  
+                </select>
+                <label>Employees current location</label>
+              </div>
+        <ul class="collection" id="employeeCollection">
+            {{#each working}}
+                <li class="collection-item avatar empllist {{this.currentRoom}}" id="employee1">
+                    <img src="{{this.image}}" alt="Employee photo" class="circle">
+                    <span class="title">{{this.name}}</span>
+                    <p>Access level <span>{{this.accessLevel}}</span> <br>
+                    Current place: <span class="currentPlace">{{this.currentRoom}}</span><br>
+                    Began: <span>{{this.startTime}}</span></p>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script>
+        $('.button-collapse').sideNav({
+            menuWidth: 300,
+            edge: 'right',
+            closeOnClick: true,
+            draggable: true
+        });  
+        uniqueArray=[];
+        {{#each working}}
+            if(!uniqueArray.includes("{{this.currentRoom}}")){
+                            console.log('a');
+
+                uniqueArray.push("{{this.currentRoom}}");
+                $('#selectPlace')
+                .append($("<option></option>")
+                    .attr("value","{{this.currentRoom}}")
+                    .text("{{this.currentRoom}}")); 
+            }
+        {{/each}}
+         
+        $('select').material_select();
+        $('select').on('change', function() {
+            var chosePlace = $('select').val();
+            var collection = $('.empllist').hide();
+            var list = $('.empllist.'+chosePlace).show();
+        }); 
+    </script>
+</body>

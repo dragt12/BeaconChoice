@@ -1,0 +1,118 @@
+var sequelize=require('../config/sequelize');
+var Sequelize=require('sequelize');
+const Company= sequelize.define('company', {
+    id:{
+        autoIncrement:true,
+        primaryKey:true,
+        type:Sequelize.INTEGER
+    },
+    email: {
+        type:Sequelize.STRING,
+        validate: {
+            isEmail:true
+        }
+    },
+    password:{
+        type:Sequelize.STRING,
+        allowNull:false
+    },
+    name:{
+        type:Sequelize.STRING
+    }
+})
+const Employee=sequelize.define('employee', {
+    id:{
+        autoIncrement:true,
+        primaryKey:true,
+        type:Sequelize.INTEGER
+    },
+    image:{
+        type:Sequelize.STRING,
+        allowNull:false,
+        defaultValue:"https://www.w3schools.com/howto/img_fjords.jpg"
+    },
+    name:{
+        type:Sequelize.STRING,
+        allowNull:false
+    },
+    beaconID:{
+        type:Sequelize.STRING,
+        allowNull:false
+    },
+    accessLevel:{
+        type:Sequelize.STRING,
+        allowNull:false
+    },
+    days:{
+        type:Sequelize.STRING,
+        defaultValue:"",
+        allowNull:true
+    },
+    active:{
+        type:Sequelize.BOOLEAN,
+        defaultValue:false
+    },
+    currentRoom:{
+        type:Sequelize.STRING,
+        allowNull:true
+    }
+});
+const Place=sequelize.define('place', {
+    date:{
+        type:Sequelize.STRING,
+        allowNull:false
+    },
+    startTime:{
+        type:Sequelize.STRING
+    },
+    endTime:{
+        type:Sequelize.STRING
+    },
+    name:{
+        type:Sequelize.STRING,
+        allowNull:false
+    },
+    main:{
+        type:Sequelize.BOOLEAN,
+        defaultValue:false,
+        allowNull:true
+    }
+});
+const Scanner=sequelize.define('scanner', {
+    id:{
+        autoIncrement:true,
+        primaryKey:true,
+        type:Sequelize.INTEGER
+    },
+    companyName:{
+        type:Sequelize.STRING,
+        allowNull:false
+    },
+    scannerName:{
+        type:Sequelize.STRING,
+        allowNull:false,
+    },
+    scannerLevel:{
+        type:Sequelize.INTEGER,
+        allowNull:false
+    },
+    main:{
+        type:Sequelize.BOOLEAN,
+        defaultValue:false
+    }
+})
+Place.belongsTo(Employee);
+Company.hasMany(Employee);
+Company.hasMany(Scanner);
+Employee.hasMany(Place);
+Employee.sync({force:false});
+Company.sync({force: false});
+Place.sync({force:false});
+Scanner.sync({force:false});
+
+module.exports={
+    Company:Company,
+    Employee:Employee,
+    Place:Place,
+    Scanner:Scanner
+}

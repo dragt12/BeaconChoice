@@ -1,0 +1,41 @@
+<body>
+    <nav class="indigo">
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo"><img src="/images/companyLogo.png" id="companyLogo" alt="Beacon Choice logo"></a>
+            <a href="#" data-activates="slide-out" class="right button-collapse show-on-large indigo"><i class="material-icons">menu</i></a>
+            <ul id="slide-out" class="side-nav">
+                <li><a href="/"><i class="material-icons">home</i>Home</a></li>
+                <li><a href="/employee/manage"><i class="material-icons">group</i>Employees</a></li>
+                <li><a href="/employee/working"><i class="material-icons">assignment_ind</i>Currently working</a></li>
+                <li><a href="/employee/analysis"><i class="material-icons">assessment</i>Analysis</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/users/logout"><i class="material-icons">power_settings_new</i>Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+
+        
+        <h2 class="header">Employees List</h2>
+        <ul class="collection">
+            {{#each employee}}
+                <li class="collection-item avatar">
+                    <img src="http://i734.photobucket.com/albums/ww343/Firearms_136/DevFlo%20HidethePainHarold_zpsgjz2isfk.png" alt="Employee photo" class="circle">
+                    <span class="title">{{this.name}}</span>
+                    <p>Access level <span>{{this.accessLevel}}</span></p>
+                    <div class="secondary-content">
+                        <a href="/employee/web/delete/{{this.id}}"><button class="btn waves-effect waves-light red col s8 offset-s2" type="submit" name="action">delete</button></a>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script>  $('.button-collapse').sideNav({
+      menuWidth: 300,
+      edge: 'right',
+      closeOnClick: true,
+      draggable: true
+    }); </script>
+</body>

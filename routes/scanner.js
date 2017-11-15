@@ -37,9 +37,9 @@ router.post('/create', function(req,res,next){
     })
 })
 router.get('/getUUID/:companyId', function(req,res,next){
-    Employee.find({
+    Employee.findAll({
         where:{
-            companyID:req.params.companyId
+            companyId:req.params.companyId
         },
         attributes:["beaconID"]
     }).then(function(id){

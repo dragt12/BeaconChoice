@@ -12,33 +12,24 @@ router.get('/', function(req, res, next) {
 router.get('/testData', function(req,res,next){
   Company.findOne({
   }).then(function(company){
-      Scanner.create({
-          companyId:company.id,
-          companyName:company.name,
-          scannerName:"test",
-          scannerLevel:2,
-          main:true
-      })
-      Scanner.create({
-          companyId:company.id,
-          companyName:company.name,
-          scannerName:"testcant",
-          scannerLevel:4,
-          main:false
-      })
-      Scanner.create({
-          companyId:company.id,
-          companyName:company.name,
-          scannerName:"testcan",
-          scannerLevel:2,
-          main:false
-      })
       Employee.create({
         companyId:company.id,
         name:"Marcin Michno",
-        beaconID:"abcdefg",
+        beaconID:"48bc27e5262d17a4d50fad1867fe3007",
         accessLevel:3
-      })  
+      })
+      Employee.create({
+        companyId:company.id,
+        name:"Arek Slowik",
+        beaconID:"86b89d2815db3275a4dd9b0a7ee37f32",
+        accessLevel:5
+      })
+      Employee.create({
+        companyId:company.id,
+        name:"Hubert Kleczek",
+        beaconID:"3835b0be3ca5c1924658a5c7f623d219",
+        accessLevel:997
+      })
   })
   
 })

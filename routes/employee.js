@@ -18,7 +18,7 @@ router.post('/register', function(req,res,next){
    })
 })
 router.get('/manage', isLoggedIn, function(req,res,next){
-    Employee.find({
+    Employee.findAll({
         where:{
             companyId:req.user.id
         },
@@ -30,7 +30,7 @@ router.get('/manage', isLoggedIn, function(req,res,next){
     })
 })
 router.get('/working', isLoggedIn, function(req,res,next){
-    Employee.find({
+    Employee.findAll({
         where:{
             companyId:req.user.id,
             active:true
@@ -41,7 +41,7 @@ router.get('/working', isLoggedIn, function(req,res,next){
     })
 });
 router.get('/analysis', isLoggedIn, function(req,res,next){
-    Employee.find({
+    Employee.findAll({
         where:{
             companyId:req.user.id
         },

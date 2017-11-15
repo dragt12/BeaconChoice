@@ -37,7 +37,8 @@ const Employee=sequelize.define('employee', {
     },
     beaconID:{
         type:Sequelize.STRING,
-        allowNull:false
+        allowNull:false,
+        unique:true
     },
     accessLevel:{
         type:Sequelize.STRING,
@@ -105,9 +106,9 @@ Place.belongsTo(Employee);
 Company.hasMany(Employee);
 Company.hasMany(Scanner);
 Employee.hasMany(Place);
-Employee.sync({force:false});
 Company.sync({force: false});
 Place.sync({force:false});
+Employee.sync({force:false});
 Scanner.sync({force:false});
 
 module.exports={

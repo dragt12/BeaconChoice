@@ -24,9 +24,7 @@ router.get('/manage', isLoggedIn, function(req,res,next){
         },
         raw : true
     }).then(function(result){
-        var goodRes=result.dataValues;
-        console.log(result.dataValues);
-        res.render('manage', {'employee':{result}})
+        res.render('manage', {'employee':result})
     })
 })
 router.get('/working', isLoggedIn, function(req,res,next){
@@ -36,8 +34,7 @@ router.get('/working', isLoggedIn, function(req,res,next){
             active:true
         }
     }).then(function(result){
-        console.log(result);
-        res.render('working', {'working':{result}})
+        res.render('working', {'working':result})
     })
 });
 router.get('/analysis', isLoggedIn, function(req,res,next){
